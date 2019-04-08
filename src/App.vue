@@ -1,16 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <MySlot>
+      <template v-slot:named>
+        <h1>named slot string</h1>
+      </template>
+
+      <template v-slot:default>
+        <p>default slot String</p>
+      </template>
+    </MySlot>
   </div>
 </template>
+<script>
+
+import MySlot from '@/components/SlotTest.vue'
+export default {
+  components: { MySlot }
+}
+</script>
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
