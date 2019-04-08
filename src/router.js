@@ -4,16 +4,22 @@ import Home from './views/Home.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
       path: '/home',
+      meta: {
+        title: '首页'
+      },
       name: 'home',
       component: Home
     },
     {
       path: '/about',
+      meta: {
+        title: '介绍页'
+      },
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -21,6 +27,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }, {
       path: '/user/:id',
+      meta: {
+        title: '个人主页'
+      },
       component: (resolve) => require(['./views/User.vue'], resolve)
     }, {
       path: '*',
@@ -28,3 +37,10 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  window.document.title = to.meta.title
+  next()
+})
+
+export default router
