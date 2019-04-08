@@ -15,10 +15,14 @@
 
     <EventPublisher></EventPublisher>
     <EventListener></EventListener>
+    <div id="nav">
+      <router-link to="/home">Home</router-link>|
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 <script>
-
 import MySlot from '@/components/SlotTest.vue'
 import MyProps from '@/components/PropsTest.vue'
 import MyBtn from '@/components/MyButton.vue'
