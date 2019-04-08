@@ -1,21 +1,31 @@
 <template>
   <div id="app">
     <MySlot>
-      <template v-slot:named>
+      <div slot="named">
         <h1>named slot string</h1>
-      </template>
-
-      <template v-slot:default>
+      </div>
+      <div slot>
         <p>default slot String</p>
-      </template>
+      </div>
     </MySlot>
+
+    <MyProps title="I'm Props Title"></MyProps>
+
+    <MyBtn color="#00FF00" @click="handleClick">Click Me</MyBtn>
   </div>
 </template>
 <script>
 
 import MySlot from '@/components/SlotTest.vue'
+import MyProps from '@/components/PropsTest.vue'
+import MyBtn from '@/components/MyButton.vue'
 export default {
-  components: { MySlot }
+  components: { MySlot, MyProps, MyBtn },
+  methods: {
+    handleClick (e) {
+      console.log(e)
+    }
+  }
 }
 </script>
 
