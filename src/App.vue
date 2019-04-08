@@ -12,6 +12,9 @@
     <MyProps title="I'm Props Title"></MyProps>
 
     <MyBtn color="#00FF00" @click="handleClick">Click Me</MyBtn>
+
+    <EventPublisher></EventPublisher>
+    <EventListener></EventListener>
   </div>
 </template>
 <script>
@@ -19,8 +22,10 @@
 import MySlot from '@/components/SlotTest.vue'
 import MyProps from '@/components/PropsTest.vue'
 import MyBtn from '@/components/MyButton.vue'
+import EventPublisher from '@/components/EventPublisher.vue'
+import EventListener from '@/components/EventListener.vue'
 export default {
-  components: { MySlot, MyProps, MyBtn },
+  components: { MySlot, MyProps, MyBtn, EventPublisher, EventListener },
   methods: {
     handleClick (e) {
       console.log(e)
