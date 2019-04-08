@@ -13,13 +13,15 @@
 
     <MyBtn color="#00FF00" @click="handleClick">Click Me</MyBtn>
 
+    <MyPromise></MyPromise>
+
     <EventPublisher></EventPublisher>
     <EventListener></EventListener>
     <div id="nav">
       <router-link to="/home">Home</router-link>|
       <router-link to="/about">About</router-link>
-      <router-link to="/about">About</router-link>
     </div>
+    <button @click="gotoUserPage">goto user page</button>
     <router-view/>
   </div>
 </template>
@@ -29,11 +31,15 @@ import MyProps from '@/components/PropsTest.vue'
 import MyBtn from '@/components/MyButton.vue'
 import EventPublisher from '@/components/EventPublisher.vue'
 import EventListener from '@/components/EventListener.vue'
+import MyPromise from '@/components/PromiseTest.vue'
 export default {
-  components: { MySlot, MyProps, MyBtn, EventPublisher, EventListener },
+  components: { MySlot, MyProps, MyBtn, EventPublisher, EventListener, MyPromise },
   methods: {
     handleClick (e) {
       console.log(e)
+    },
+    gotoUserPage () {
+      this.$router.push('/user/123')
     }
   }
 }
